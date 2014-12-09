@@ -24,8 +24,7 @@ func (phoneBook PhoneBook) search(name string) Entry {
 	r, _ := regexp.Compile(name)
 	entries := phoneBook.entries
 	entry := Entry{}
-	for itr := 0; itr < len(entries); itr++ {
-		current_entry := entries[itr]
+	for _, current_entry := range entries {
 		if r.MatchString(current_entry.name) {
 			entry.name = current_entry.name
 			break
