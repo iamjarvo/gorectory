@@ -23,10 +23,10 @@ func (phoneBook *PhoneBook) add(entry Entry) {
 func (phoneBook PhoneBook) search(name string) Entry {
 	r, _ := regexp.Compile(name)
 	entries := phoneBook.entries
-	entry := Entry{}
+	var entry Entry
 	for _, current_entry := range entries {
 		if r.MatchString(current_entry.name) {
-			entry.name = current_entry.name
+			entry = current_entry
 			break
 		}
 	}
